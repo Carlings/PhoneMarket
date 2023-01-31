@@ -1,7 +1,10 @@
-﻿namespace MarketPhone.WEB.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MarketPhone.WEB.Models
 {
     public class Phone
     {
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Company { get; set; }
