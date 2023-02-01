@@ -5,7 +5,6 @@ namespace MarketPhone.WEB.Models
 {
     public class Order
     {
-        [Key]
         public int Id { get; set; }
         public decimal Sum { get; set; }
         public string PhoneNumber { get; set; }

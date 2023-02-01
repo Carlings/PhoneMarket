@@ -69,6 +69,36 @@ namespace MarketPhone.WEB.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Phones");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Company = "Nokia",
+                            Name = "Nokia Lumia 630",
+                            Price = 220m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Company = "Apple",
+                            Name = "iPhone 6",
+                            Price = 320m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Company = "lG",
+                            Name = "LG G4",
+                            Price = 260m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Company = "Samsung",
+                            Name = "Samsung Galaxy S 6",
+                            Price = 300m
+                        });
                 });
 
             modelBuilder.Entity("MarketPhone.WEB.Models.Order", b =>
