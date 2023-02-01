@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace MarketPhone.WEB.Migrations
 {
     /// <inheritdoc />
-    public partial class secondChangesOnDB : Migration
+    public partial class buildMarketPhoneDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,7 @@ namespace MarketPhone.WEB.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Company = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Price = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
+                    Price = table.Column<decimal>(type: "decimal(65,3)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +41,7 @@ namespace MarketPhone.WEB.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Sum = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
+                    Sum = table.Column<decimal>(type: "decimal(65,3)", nullable: false),
                     PhoneNumber = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Address = table.Column<string>(type: "longtext", nullable: false)
@@ -66,10 +66,10 @@ namespace MarketPhone.WEB.Migrations
                 columns: new[] { "Id", "Company", "Name", "Price" },
                 values: new object[,]
                 {
-                    { 1, "Nokia", "Nokia Lumia 630", 220m },
-                    { 2, "Apple", "iPhone 6", 320m },
-                    { 3, "lG", "LG G4", 260m },
-                    { 4, "Samsung", "Samsung Galaxy S 6", 300m }
+                    { 1, "Nokia", "Nokia Lumia 630", 220.0m },
+                    { 2, "Apple", "iPhone 6", 320.0m },
+                    { 3, "lG", "LG G4", 260.0m },
+                    { 4, "Samsung", "Samsung Galaxy S 6", 300.0m }
                 });
 
             migrationBuilder.CreateIndex(

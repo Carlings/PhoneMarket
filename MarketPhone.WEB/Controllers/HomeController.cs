@@ -19,6 +19,7 @@ namespace MarketPhone.WEB.Controllers
             return View(_dbMarket.Phones.ToList());
         }
 
+        [HttpGet]
         public IActionResult MakeOrder(int? id)
         {
             if (id == null)
@@ -26,12 +27,13 @@ namespace MarketPhone.WEB.Controllers
             Phone phone = _dbMarket.Phones.Find(id);
             if (phone == null)
                 return NotFound();
+
             OrderViewModel orderModel = new OrderViewModel { PhoneId = phone.Id };
             return View(orderModel);
         }
 
         [HttpPost]
-        public ActionResult MakeOrder(OrderViewModel orderModel)
+        public IActionResult MakeOrder(OrderViewModel orderModel)
         {
             if (ModelState.IsValid)
             {

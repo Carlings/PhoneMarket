@@ -1,7 +1,19 @@
-﻿
-@{
-    ViewData["Title"] = "MakeOrder";
-}
+﻿@model MarketPhone.WEB.Models.ViewModels.OrderViewModel
 
-<h1>MakeOrder</h1>
+<form method="post">
+    <input asp-for="@Model.PhoneId" hidden />
+    <div class="form-group">
+        <label for="Address">Address: </label>
+        <input asp-for="@Model.Address" type="text" class="form-control" id="Address" placeholder="Input here..">
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="PhoneNumber">PhoneNumber: </label>
+        <input asp-for="@Model.PhoneNumber" type="text" class="form-control" id="PhoneNumber" placeholder="Input here..">
+    </div>
+    <br />
+    <div class="text-center"> 
+        <button type="submit" asp-action="MakeOrder" class="btn btn-outline-success">Submit</button>
+    </div>
+</form>
 

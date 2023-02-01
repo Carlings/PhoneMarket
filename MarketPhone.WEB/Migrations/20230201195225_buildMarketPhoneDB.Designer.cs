@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarketPhone.WEB.Migrations
 {
     [DbContext(typeof(PhoneDBContext))]
-    [Migration("20230201093944_secondChangesOnDB")]
-    partial class secondChangesOnDB
+    [Migration("20230201195225_buildMarketPhoneDB")]
+    partial class buildMarketPhoneDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,28 +79,28 @@ namespace MarketPhone.WEB.Migrations
                             Id = 1,
                             Company = "Nokia",
                             Name = "Nokia Lumia 630",
-                            Price = 220m
+                            Price = 220.0m
                         },
                         new
                         {
                             Id = 2,
                             Company = "Apple",
                             Name = "iPhone 6",
-                            Price = 320m
+                            Price = 320.0m
                         },
                         new
                         {
                             Id = 3,
                             Company = "lG",
                             Name = "LG G4",
-                            Price = 260m
+                            Price = 260.0m
                         },
                         new
                         {
                             Id = 4,
                             Company = "Samsung",
                             Name = "Samsung Galaxy S 6",
-                            Price = 300m
+                            Price = 300.0m
                         });
                 });
 
