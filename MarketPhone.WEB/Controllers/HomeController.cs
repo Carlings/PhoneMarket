@@ -8,7 +8,11 @@ namespace MarketPhone.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private PhoneDBContext _dbMarket = new PhoneDBContext();
+        private PhoneDBContext _dbMarket;
+        public HomeController(PhoneDBContext dbMarket)
+        {
+            _dbMarket = dbMarket;
+        }
 
         public IActionResult Index()
         {

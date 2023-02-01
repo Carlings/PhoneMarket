@@ -10,8 +10,9 @@ namespace MarketPhone.WEB
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddDbContextPool<PhoneDBContext>(db => db.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 30))));
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContextPool<PhoneDBContext>(db => db.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8,0,30))));
+            
 
             var app = builder.Build();
             

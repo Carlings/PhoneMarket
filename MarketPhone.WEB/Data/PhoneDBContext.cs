@@ -8,14 +8,10 @@ namespace MarketPhone.WEB.Data
         public DbSet<Phone> Phones { get; set; }
         public DbSet<Order> Orders { get; set; }
 
+
         public PhoneDBContext(DbContextOptions<PhoneDBContext> dbContextOptions) : base(dbContextOptions)
         {
             Database.EnsureCreated();
-        }
-
-        public PhoneDBContext()
-        {
-
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +24,7 @@ namespace MarketPhone.WEB.Data
                 new Phone { Id = 4, Name = "Samsung Galaxy S 6", Company = "Samsung", Price = 300 }
                 );
         }
+
     }
 
 
