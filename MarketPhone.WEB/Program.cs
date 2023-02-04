@@ -1,4 +1,5 @@
 using MarketPhone.WEB.Data;
+using MarketPhone.WEB.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace MarketPhone.WEB
@@ -12,7 +13,11 @@ namespace MarketPhone.WEB
             // Add services to the container.
             builder.Services.AddDbContextPool<PhoneDBContext>(db => db.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 30))));
             builder.Services.AddControllersWithViews();
-            
+            builder.Services.AddTransient<PhoneService>();
+            builder.Services.AddStackExchangeRedisCache(options => {
+                options.Configuration = "localhost";
+                options.InstanceName = "local";
+            });
 
             var app = builder.Build();
             

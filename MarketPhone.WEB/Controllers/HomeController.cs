@@ -53,7 +53,7 @@ namespace MarketPhone.WEB.Controllers
                 };
                 _dbMarket.Orders.Add(order);
                 _dbMarket.SaveChanges();
-                return Content("<h2>Ваш заказ успешно оформлен</h2>");
+                return RedirectToAction("Index");
             }
             return View(orderModel);
         }
