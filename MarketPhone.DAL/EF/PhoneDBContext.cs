@@ -1,7 +1,7 @@
-﻿using MarketPhone.WEB.Models;
+﻿using MarketPhone.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace MarketPhone.WEB.Data
+namespace MarketPhone.DAL.Data
 {
     public class PhoneDBContext : DbContext
     {

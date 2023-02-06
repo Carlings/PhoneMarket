@@ -5,7 +5,11 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{CC9A3FB5-E284-4E14-B2DF-D8E4C29CFC9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPhone.WEB", "MarketPhone.WEB\MarketPhone.WEB.csproj", "{97E62D39-8377-4755-8250-9C764FC71673}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPhone.WEB", "MarketPhone.WEB\MarketPhone.WEB.csproj", "{97E62D39-8377-4755-8250-9C764FC71673}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{020A6FD4-B324-4665-82DA-F63B3BD8BD03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPhone.DAL", "MarketPhone.DAL\MarketPhone.DAL.csproj", "{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +21,17 @@ Global
 		{97E62D39-8377-4755-8250-9C764FC71673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97E62D39-8377-4755-8250-9C764FC71673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97E62D39-8377-4755-8250-9C764FC71673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{97E62D39-8377-4755-8250-9C764FC71673} = {CC9A3FB5-E284-4E14-B2DF-D8E4C29CFC9C}
+		{8A7F69DE-8DB2-4FF7-9C76-5A8667BAA904} = {020A6FD4-B324-4665-82DA-F63B3BD8BD03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7955F41-A8AF-4A3E-A860-2AF22F8BBC3B}

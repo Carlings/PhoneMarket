@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace MarketPhone.WEB.Models
+namespace MarketPhone.DAL.Entities
 {
     public class Order
     {
@@ -10,7 +9,6 @@ namespace MarketPhone.WEB.Models
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public DateTime Date { get; set; }
-
         public int PhoneId { get; set; }
         public Phone Phone { get; set; }
     }

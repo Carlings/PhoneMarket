@@ -1,8 +1,9 @@
-﻿using MarketPhone.WEB.Data;
-using MarketPhone.WEB.Models;
+﻿using MarketPhone.DAL.Data;
+using MarketPhone.DAL.Entities;
+using MarketPhone.DAL.Interfaces;
+using MarketPhone.DAL.Repositories;
 using MarketPhone.WEB.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace MarketPhone.WEB.Controllers
 {

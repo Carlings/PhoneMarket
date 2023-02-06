@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MarketPhone.WEB.Models
+namespace MarketPhone.DAL.Entities
 {
     public class Phone
     {
