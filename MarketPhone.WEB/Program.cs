@@ -1,6 +1,8 @@
 using MarketPhone.DAL.Repositories;
 using MarketPhone.DAL.Data;
 using Microsoft.EntityFrameworkCore;
+using MarketPhone.DAL.Interfaces;
+using MarketPhone.DAL.Entities;
 
 namespace MarketPhone.WEB
 {
@@ -14,6 +16,8 @@ namespace MarketPhone.WEB
             builder.Services.AddDbContextPool<PhoneDBContext>(db => db.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), new MySqlServerVersion(new Version(8, 0, 30))));
             builder.Services.AddControllersWithViews();
             builder.Services.AddTransient<PhoneRepository>();
+            builder.Services.AddScoped<IRepository<Phone>, PhoneRepository>();
+            builder.Services.AddScoped<IRepository<Order>, OrderRepository>();
             builder.Services.AddStackExchangeRedisCache(options => {
                 options.Configuration = "localhost";
                 options.InstanceName = "local";

@@ -21,6 +21,7 @@ namespace MarketPhone.DAL.Repositories
         public void Create(Phone item)
         {
             db.Phones.Add(item);
+            db.SaveChanges();
         }
 
         public void Delete(int id)
@@ -28,6 +29,7 @@ namespace MarketPhone.DAL.Repositories
             Phone book = db.Phones.Find(id);
             if (book != null)
                 db.Phones.Remove(book);
+            db.SaveChanges();
         }
 
         public IEnumerable<Phone> Find(Func<Phone, bool> predicate)
@@ -68,6 +70,7 @@ namespace MarketPhone.DAL.Repositories
         public void Update(Phone item)
         {
             db.Entry(item).State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

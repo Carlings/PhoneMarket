@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MarketPhone.DAL.Repositories
 {
-    internal class OrderRepository : IRepository<Order>
+    public class OrderRepository : IRepository<Order>
     {
         private PhoneDBContext db;
 
@@ -27,11 +27,13 @@ namespace MarketPhone.DAL.Repositories
         public void Create(Order order)
         {
             db.Orders.Add(order);
+            db.SaveChanges();
         }
 
         public void Update(Order order)
         {
             db.Entry(order).State = EntityState.Modified;
+            db.SaveChanges();
         }
         public IEnumerable<Order> Find(Func<Order, Boolean> predicate)
         {
@@ -42,6 +44,7 @@ namespace MarketPhone.DAL.Repositories
             Order order = db.Orders.Find(id);
             if (order != null)
                 db.Orders.Remove(order);
+            db.SaveChanges();
         }
     }
 }
