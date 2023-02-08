@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MarketPhone.BLL.Interfaces
 {
-    internal interface IOrderService
+    public interface IOrderService
     {
         void MakeOrder(OrderDTO orderDto);
         PhoneDTO GetPhone(int? id);

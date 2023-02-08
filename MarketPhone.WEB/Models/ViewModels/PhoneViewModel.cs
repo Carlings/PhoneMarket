@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MarketPhone.BLL.DTO
+﻿namespace MarketPhone.WEB.Models.ViewModels
 {
-    public class PhoneDTO
+    public class PhoneViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

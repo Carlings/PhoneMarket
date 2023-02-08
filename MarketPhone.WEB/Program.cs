@@ -3,6 +3,8 @@ using MarketPhone.DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using MarketPhone.DAL.Interfaces;
 using MarketPhone.DAL.Entities;
+using MarketPhone.BLL.Interfaces;
+using MarketPhone.BLL.Services;
 
 namespace MarketPhone.WEB
 {
@@ -18,6 +20,7 @@ namespace MarketPhone.WEB
             builder.Services.AddTransient<PhoneRepository>();
             builder.Services.AddScoped<IRepository<Phone>, PhoneRepository>();
             builder.Services.AddScoped<IRepository<Order>, OrderRepository>();
+            builder.Services.AddScoped<IOrderService, OrderService>();
             builder.Services.AddStackExchangeRedisCache(options => {
                 options.Configuration = "localhost";
                 options.InstanceName = "local";

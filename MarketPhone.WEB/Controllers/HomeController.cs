@@ -1,67 +1,66 @@
 ﻿using MarketPhone.DAL.Data;
 using MarketPhone.DAL.Entities;
-using MarketPhone.DAL.Interfaces;
-using MarketPhone.DAL.Repositories;
 using MarketPhone.WEB.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using MarketPhone.BLL.Interfaces;
+using AutoMapper;
+using MarketPhone.BLL.DTO;
+using System.ComponentModel.DataAnnotations;
+using StackExchange.Redis;
 
 namespace MarketPhone.WEB.Controllers
 {
     public class HomeController : Controller
     {
-        private PhoneDBContext _dbMarket;
-        public HomeController(PhoneDBContext dbMarket)
+        IOrderService orderService;
+        public HomeController(IOrderService serv)
         {
-            _dbMarket = dbMarket;
+            orderService = serv;
         }
 
         public IActionResult Index()
         {
-            return View(_dbMarket.Phones.ToList());
+            IEnumerable<PhoneDTO> phoneDtos = orderService.GetPhones();
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<PhoneDTO, PhoneViewModel>()).CreateMapper();
+            var phones = mapper.Map<IEnumerable<PhoneDTO>, List<PhoneViewModel>>(phoneDtos);
+            return View(phones);
         }
 
         [HttpGet]
         public IActionResult MakeOrder(int? id)
         {
-            if (id == null)
-                return NotFound();
-            Phone phone = _dbMarket.Phones.Find(id);
-            if (phone == null)
-                return NotFound();
+            try
+            {
+                PhoneDTO phone = orderService.GetPhone(id);
+                var order = new OrderViewModel { PhoneId = phone.Id };
 
-            OrderViewModel orderModel = new OrderViewModel { PhoneId = phone.Id };
-            return View(orderModel);
+                return View(order);
+            }
+            catch (ValidationException ex)
+            {
+                return Content(ex.Message);
+            }
         }
 
         [HttpPost]
         public IActionResult MakeOrder(OrderViewModel orderModel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                Phone phone = _dbMarket.Phones.Find(orderModel.PhoneId);
-                if (phone == null)
-                    return NotFound();
-
-                decimal sum = phone.Price;
-
-                Order order = new Order
-                {
-                    PhoneId = phone.Id,
-                    PhoneNumber = orderModel.PhoneNumber,
-                    Address = orderModel.Address,
-                    Date = DateTime.Now,
-                    Sum = sum
-                };
-                _dbMarket.Orders.Add(order);
-                _dbMarket.SaveChanges();
-                return RedirectToAction("Index");
+                var orderDto = new OrderDTO { PhoneId = orderModel.PhoneId, Address = orderModel.Address, PhoneNumber = orderModel.PhoneNumber };
+                orderService.MakeOrder(orderDto);
+                return Content("<h2>Ваш заказ успешно оформлен</h2>");
+            }
+            catch (ValidationException ex)
+            {
+                ModelState.AddModelError(ex.Source, ex.Message);
             }
             return View(orderModel);
         }
 
         protected override void Dispose(bool disposing)
         {
-            _dbMarket.Dispose();
+            orderService.Dispose();
             base.Dispose(disposing);
         }
 

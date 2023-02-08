@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MarketPhone.BLL.DTO
 {
-    internal class OrderDTO
+    public class OrderDTO
     {
         public int Id { get; set; }
         public string PhoneNumber { get; set; }

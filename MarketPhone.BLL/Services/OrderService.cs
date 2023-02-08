@@ -2,20 +2,13 @@
 using MarketPhone.BLL.BusinessModels;
 using MarketPhone.BLL.DTO;
 using MarketPhone.BLL.Interfaces;
-using MarketPhone.DAL.Data;
 using MarketPhone.DAL.Entities;
 using MarketPhone.DAL.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MarketPhone.BLL.Services
 {
-    internal class OrderService : IOrderService
+    public class OrderService : IOrderService
     {
         private IRepository<Phone> phoneRepository;
         private IRepository<Order> orderRepository;

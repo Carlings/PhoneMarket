@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WEB", "WEB", "{CC9A3FB5-E284-4E14-B2DF-D8E4C29CFC9C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPhone.WEB", "MarketPhone.WEB\MarketPhone.WEB.csproj", "{97E62D39-8377-4755-8250-9C764FC71673}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BEE12729-64AC-4189-9AD1-CC1C200DEB00} = {BEE12729-64AC-4189-9AD1-CC1C200DEB00}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{020A6FD4-B324-4665-82DA-F63B3BD8BD03}"
 EndProject
@@ -13,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPhone.DAL", "MarketPh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{47611135-804F-4D3F-BF46-40E3510D27E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketPhone.BLL", "MarketPhone.BLL\MarketPhone.BLL.csproj", "{BEE12729-64AC-4189-9AD1-CC1C200DEB00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarketPhone.BLL", "MarketPhone.BLL\MarketPhone.BLL.csproj", "{BEE12729-64AC-4189-9AD1-CC1C200DEB00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
